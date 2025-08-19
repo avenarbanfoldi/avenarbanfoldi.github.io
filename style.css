@@ -12,8 +12,8 @@ body {
     color: #000;
     line-height: 1.6;
 
-    /* Absztrakt pókháló háttér */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><g stroke="%23000" stroke-width="1" fill="none"><line x1="0" y1="0" x2="800" y2="800"/><line x1="800" y1="0" x2="0" y2="800"/><circle cx="400" cy="400" r="100"/><circle cx="400" cy="400" r="200"/><circle cx="400" cy="400" r="300"/></g></svg>');
+    /* Absztrakt, szabad vonalak háttér */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><g stroke="%23000" stroke-width="1" fill="none"><path d="M10 10 C 100 200, 300 100, 400 300" /><path d="M50 400 C 150 300, 350 500, 500 200" /><path d="M600 50 C 700 300, 900 100, 1000 400" /><path d="M200 700 C 400 600, 500 700, 600 650" /><path d="M100 100 C 200 50, 300 150, 400 100" /><path d="M800 200 C 900 50, 1000 300, 1100 100" /><path d="M300 400 C 500 300, 700 500, 900 350" /><path d="M50 600 C 250 500, 450 700, 650 400" /></g></svg>');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -57,7 +57,7 @@ nav .menu li a {
 .hero {
     text-align: center;
     padding: 120px 20px;
-    color: #000; /* Szöveg jól olvasható legyen a háttér fölött */
+    color: #000; /* Szöveg jól olvasható a háttér felett */
 }
 
 .hero h1 {
