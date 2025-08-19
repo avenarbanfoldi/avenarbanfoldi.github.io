@@ -1,66 +1,72 @@
-// Landing canvas (pókhálós animáció)
-const canvas = document.getElementById('background');
+// ----- Pókháló animáció -----
+const canvas = document.getElementById('backgroundCanvas');
 const ctx = canvas.getContext('2d');
-let w, h;
+let width = canvas.width = window.innerWidth;
+let height = canvas.height = window.innerHeight;
+const lines = [];
 
-function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resize);
-resize();
+function random(min, max) { return Math.random() * (max - min) + min; }
 
-// Pontok létrehozása
-const points = [];
-for (let i = 0; i < 300; i++) {
-    points.push({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        dx: (Math.random() - 0.5) * 0.05, // lassabb mozgás
-        dy: (Math.random() - 0.5) * 0.05
-    });
+class Line {
+    constructor() {
+        this.x = random(0, width);
+        this.y = random(0, height);
+        this.vx = random(-0.3, 0.3);
+        this.vy = random(-0.3, 0.3);
+        this.length = random(20, 100);
+    }
+    move() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+    draw() {
+        ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x + this.length, this.y + this.length);
+        ctx.stroke();
+    }
 }
+
+for (let i = 0; i < 100; i++) lines.push(new Line());
 
 function animate() {
-    ctx.clearRect(0, 0, w, h);
-
-    points.forEach((p, i) => {
-        points.forEach((q, j) => {
-            if (i < j) {
-                const dx = p.x - q.x;
-                const dy = p.y - q.y;
-                const dist = Math.sqrt(dx*dx + dy*dy);
-                if (dist < 120) {
-                    ctx.strokeStyle = 'rgba(255,255,255,0.2)'; // világosabb vonalak
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(q.x, q.y);
-                    ctx.stroke();
-                }
-            }
-        });
-
-        p.x += p.dx;
-        p.y += p.dy;
-        if (p.x < 0 || p.x > w) p.dx *= -1;
-        if (p.y < 0 || p.y > h) p.dy *= -1;
-    });
-
+    ctx.clearRect(0,0,width,height);
+    lines.forEach(line => { line.move(); line.draw(); });
     requestAnimationFrame(animate);
 }
 
 animate();
 
-// Accordion működés
-const accordions = document.querySelectorAll('.accordion-btn');
+window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+});
 
-accordions.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        if (content.style.maxHeight && content.style.maxHeight !== "0px") {
-            content.style.maxHeight = "0px";
+// ----- Accordion -----
+const accordions = document.querySelectorAll('.accordion');
+accordions.forEach(acc => {
+    acc.addEventListener('click', () => {
+        acc.classList.toggle('active');
+        const panel = acc.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
         } else {
-            content.style.maxHeight = content.scrollHeight + "px";
+            panel.style.maxHeight = panel.scrollHeight + "px";
         }
     });
+});
+
+// ----- Landing eltűnés -----
+window.addEventListener('scroll', () => {
+    const landing = document.getElementById('landing');
+    if (window.scrollY > window.innerHeight/2) {
+        landing.style.opacity = '0';
+        landing.style.pointerEvents = 'none';
+    } else {
+        landing.style.opacity = '1';
+        landing.style.pointerEvents = 'all';
+    }
 });
