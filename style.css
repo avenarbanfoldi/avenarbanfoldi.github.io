@@ -1,4 +1,4 @@
-/* Alap reset */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +6,16 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    color: #000;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
 header {
-    background-color: #222;
-    color: white;
-    padding: 10px 0;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 0;
 }
 
 nav {
@@ -26,36 +26,57 @@ nav {
     margin: 0 auto;
 }
 
+nav .logo {
+    font-weight: 700;
+    font-size: 24px;
+}
+
 nav .menu {
     list-style: none;
     display: flex;
 }
 
 nav .menu li {
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 nav .menu li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background-color: #555;
-    color: white;
+    padding: 120px 20px;
+    background-color: #fff;
+    color: #000;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #ff6600;
-    color: white;
+    padding: 12px 25px;
+    background-color: #000;
+    color: #fff;
     text-decoration: none;
+    font-weight: 500;
     border-radius: 5px;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #444;
 }
 
 .content {
@@ -64,9 +85,15 @@ nav .menu li a {
     text-align: center;
 }
 
+.content h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
 footer {
-    background-color: #222;
-    color: white;
+    background-color: #000;
+    color: #fff;
     text-align: center;
     padding: 20px 0;
+    font-size: 14px;
 }
