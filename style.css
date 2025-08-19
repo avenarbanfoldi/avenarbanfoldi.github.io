@@ -5,17 +5,22 @@
     box-sizing: border-box;
 }
 
-/* Body és háttér */
+/* Canvas háttér */
+#background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* A tartalom felett legyen */
+}
+
+/* Body stílus */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #fff;
     color: #000;
     line-height: 1.6;
-
-    /* Absztrakt, szabad vonalak háttér */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"><g stroke="%23000" stroke-width="1" fill="none"><path d="M10 10 C 100 200, 300 100, 400 300" /><path d="M50 400 C 150 300, 350 500, 500 200" /><path d="M600 50 C 700 300, 900 100, 1000 400" /><path d="M200 700 C 400 600, 500 700, 600 650" /><path d="M100 100 C 200 50, 300 150, 400 100" /><path d="M800 200 C 900 50, 1000 300, 1100 100" /><path d="M300 400 C 500 300, 700 500, 900 350" /><path d="M50 600 C 250 500, 450 700, 650 400" /></g></svg>');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #fff;
 }
 
 /* Header és navigáció */
@@ -57,7 +62,6 @@ nav .menu li a {
 .hero {
     text-align: center;
     padding: 120px 20px;
-    color: #000; /* Szöveg jól olvasható a háttér felett */
 }
 
 .hero h1 {
