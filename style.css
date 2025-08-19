@@ -5,27 +5,36 @@ body, html {
     font-family: 'Helvetica', sans-serif;
     background-color: #000; /* fekete háttér */
     color: #fff;            /* fehér szöveg */
+    scroll-behavior: smooth;
 }
 
 /* ----- Landing szakasz ----- */
 #landing {
     position: relative;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     transition: opacity 0.6s ease; /* sima átmenet eltűnéskor */
 }
 
 #landing.hidden {
     opacity: 0;
-    pointer-events: none; /* ne zavarjon a görgetésben */
+    pointer-events: none;
+}
+
+#landing .landing-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 #landing h1 {
     font-size: 3rem;
     z-index: 2;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
 }
 
 /* ----- Pókhálós animáció ----- */
@@ -45,24 +54,24 @@ canvas#backgroundCanvas {
 }
 
 #biography p {
-    font-size: 1.3rem; /* nagyobb szöveg */
-    line-height: 1.8;
+    font-size: 1.5rem; /* nagyobb szöveg */
+    line-height: 2;
 }
 
 /* ----- Projects szakasz ----- */
 #projects {
-    padding: 50px 20px;
+    padding: 100px 20px;
     background-color: #000;
 }
 
 #projects h2 {
-    font-size: 1.3rem; /* nagyobb szöveg */
-    line-height: 1.8;
+    font-size: 1.5rem; /* nagyobb szöveg */
+    line-height: 2;
 }
 
 .project-description {
-    font-size: 1.2rem; /* kicsit nagyobb */
-    line-height: 1.6;
+    font-size: 1.3rem;
+    line-height: 1.8;
     margin-bottom: 20px;
 }
 
@@ -73,6 +82,8 @@ canvas#backgroundCanvas {
     height: 450px;     /* 16:9 arány */
     align-self: center;
     border: none;
+    display: block;
+    margin: 10px auto; /* középre igazítás */
 }
 
 /* ----- Accordion gomb ----- */
@@ -99,4 +110,9 @@ canvas#backgroundCanvas {
     transition: max-height 0.3s ease-out;
     padding-left: 0;
     margin-bottom: 20px;
+}
+
+/* ----- Scrollhoz simább effekt ----- */
+html {
+    scroll-behavior: smooth;
 }
