@@ -9,28 +9,27 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-// Generate random points
+// Generate many random points for a dense abstract web
 const points = [];
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 200; i++) { // sok pont
     points.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        dx: (Math.random() - 0.5) * 0.3,
-        dy: (Math.random() - 0.5) * 0.3
+        dx: (Math.random() - 0.5) * 0.2, // lassú mozgás
+        dy: (Math.random() - 0.5) * 0.2
     });
 }
 
 function animate() {
     ctx.clearRect(0, 0, w, h);
 
-    // Draw lines between close points
     for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
             const dx = points[i].x - points[j].x;
             const dy = points[i].y - points[j].y;
             const dist = Math.sqrt(dx*dx + dy*dy);
-            if (dist < 150) {
-                ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            if (dist < 120) { // csak közelieket kötjük össze
+                ctx.strokeStyle = 'rgba(255,255,255,0.05)';
                 ctx.beginPath();
                 ctx.moveTo(points[i].x, points[i].y);
                 ctx.lineTo(points[j].x, points[j].y);
