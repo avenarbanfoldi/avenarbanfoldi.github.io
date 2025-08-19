@@ -3,48 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avenar Banföldi</title>
+    <title>Avenar Banfoldi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Landing Section -->
-    <section id="landing">
-        <canvas id="background"></canvas>
-        <div class="landing-content">
-            <h1>Avenar Banföldi</h1>
-        </div>
-    </section>
+    <!-- Pókhálós landing -->
+    <canvas id="background"></canvas>
+    <div class="landing">
+        <h1>Avenar Banfoldi</h1>
+    </div>
 
-    <!-- Biography Section -->
-    <section id="biography">
-        <div class="content">
+    <!-- Fekete háttér tartalom -->
+    <div class="content">
+        <!-- Biography szakasz -->
+        <section id="biography">
             <h2>Biography</h2>
-            <p>Your biography text goes here...</p>
-        </div>
-    </section>
+            <p>
+                In 2023, I graduated with a bachelor’s degree from the Liszt Ferenc Academy of Music in Budapest, specializing in Electronic Music Media Arts under the supervision of Dr. Andrea Szigetvári.<br>
+                I am currently pursuing a master’s degree in Electronic Music at the Hochschule für Musik Hanns Eisler Berlin, in the class of Prof. Wolfgang Heiniger.<br>
+                My main areas of focus are interdisciplinary projects, spatial audio, and live performance with self-developed instruments.<br>
+                My compositions have been performed at various venues and festivals in Krakow, Poland; Karlsruhe and Berlin, Germany; Vienna and Graz, Austria; as well as in multiple locations across Hungary.
+            </p>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="content">
+        <!-- Projects szakasz -->
+        <section id="projects">
             <h2>Projects</h2>
 
-            <!-- White fül lenyitható -->
-            <div class="accordion">
-                <button class="accordion-btn">WHITE</button>
-                <div class="accordion-content">
-                    <video controls width="100%" style="margin-bottom:20px;">
-                        <source src="projects/video1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <video controls width="100%">
-                        <source src="projects/video2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
+            <!-- Accordion WHITE -->
+            <button class="accordion-btn">WHITE</button>
+            <div class="accordion-content">
+                <!-- YouTube videók -->
+                <iframe width="100%" height="400"
+                    src="https://www.youtube.com/embed/6lH4LRRHbe8"
+                    title="Video 1" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
 
-        </div>
-    </section>
+                <iframe width="100%" height="400"
+                    src="https://www.youtube.com/embed/KuYbUTqTsX8"
+                    title="Video 2" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+    </div>
 
     <script src="script.js"></script>
 </body>
