@@ -9,13 +9,13 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-// Sok pont a sűrű, absztrakt pókhálóhoz
+// Több pont a sűrű pókhálóhoz
 const points = [];
-for (let i = 0; i < 300; i++) {   // több pont = sűrűbb háló
+for (let i = 0; i < 300; i++) {
     points.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        dx: (Math.random() - 0.5) * 0.1, // lassabb mozgás
+        dx: (Math.random() - 0.5) * 0.1,
         dy: (Math.random() - 0.5) * 0.1
     });
 }
@@ -29,7 +29,7 @@ function animate() {
             const dy = points[i].y - points[j].y;
             const dist = Math.sqrt(dx*dx + dy*dy);
             if (dist < 120) {
-                ctx.strokeStyle = 'rgba(255,255,255,0.25)'; // világosabb vonal
+                ctx.strokeStyle = 'rgba(255,255,255,0.18)'; // kicsit sötétebb vonal
                 ctx.beginPath();
                 ctx.moveTo(points[i].x, points[i].y);
                 ctx.lineTo(points[j].x, points[j].y);
@@ -47,4 +47,5 @@ function animate() {
 
     requestAnimationFrame(animate);
 }
+
 animate();
