@@ -50,14 +50,14 @@ function animate() {
 
 animate();
 
-// Accordion működés
+// Accordion működés – videók helyesen nyílnak
 const accordions = document.querySelectorAll('.accordion-btn');
 
 accordions.forEach(btn => {
     btn.addEventListener('click', () => {
         const content = btn.nextElementSibling;
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null; // bezárás
+        if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+            content.style.maxHeight = "0px"; // bezárás
         } else {
             content.style.maxHeight = content.scrollHeight + "px"; // megnyitás
         }
