@@ -9,14 +9,14 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
-// Create many points for dense abstract web
+// Sok pont a sűrű, absztrakt pókhálóhoz
 const points = [];
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 300; i++) {   // több pont = sűrűbb háló
     points.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        dx: (Math.random() - 0.5) * 0.2,
-        dy: (Math.random() - 0.5) * 0.2
+        dx: (Math.random() - 0.5) * 0.1, // lassabb mozgás
+        dy: (Math.random() - 0.5) * 0.1
     });
 }
 
@@ -29,7 +29,7 @@ function animate() {
             const dy = points[i].y - points[j].y;
             const dist = Math.sqrt(dx*dx + dy*dy);
             if (dist < 120) {
-                ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+                ctx.strokeStyle = 'rgba(255,255,255,0.25)'; // világosabb vonal
                 ctx.beginPath();
                 ctx.moveTo(points[i].x, points[i].y);
                 ctx.lineTo(points[j].x, points[j].y);
