@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saját Honlap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Alap stílusok */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Fejléc */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #fff;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        header .logo {
+            font-weight: 600;
+            font-size: 24px;
+        }
+        nav a {
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #0077ff;
+        }
+
+        /* Hero szekció */
+        .hero {
+            height: 100vh;
+            background: url('https://via.placeholder.com/1600x900') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Tartalom szekciók */
+        section {
+            padding: 100px 50px;
+            text-align: center;
+        }
+        section:nth-child(even) {
+            background: #f9f9f9;
+        }
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        section p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        /* Lábléc */
+        footer {
+            background: #222;
+            color: #fff;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        /* Reszponzív */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 10px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Saját Honlap</div>
+    <nav>
+        <a href="#about">Rólunk</a>
+        <a href="#services">Szolgáltatások</a>
+        <a href="#portfolio">Portfólió</a>
+        <a href="#contact">Kapcsolat</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>Üdvözlünk a honlapunkon</h1>
+        <p>Ez egy modern, letisztult weboldal, amelyet könnyen testre tudsz szabni a saját tartalmaddal.</p>
+    </div>
+</section>
+
+<section id="about">
+    <h2>Rólunk</h2>
+    <p>Bemutatjuk a csapatunkat, a küldetésünket és azt, hogy miben vagyunk különlegesek.</p>
+</section>
+
+<section id="services">
+    <h2>Szolgáltatásaink</h2>
+    <p>Ismertetjük a fő szolgáltatásainkat és azt, hogyan tudunk segíteni az ügyfeleinknek.</p>
+</section>
+
+<section id="portfolio">
+    <h2>Portfólió</h2>
+    <p>Néhány projekt, amin dolgoztunk, és amit büszkén mutatunk be.</p>
+</section>
+
+<section id="contact">
+    <h2>Kapcsolat</h2>
+    <p>Lépj kapcsolatba velünk e-mailben vagy a közösségi média felületeinken keresztül.</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Saját Honlap. Minden jog fenntartva.</p>
+</footer>
+
+</body>
+</html>
