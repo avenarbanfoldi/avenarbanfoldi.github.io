@@ -49,3 +49,17 @@ function animate() {
 }
 
 animate();
+
+// Accordion működés
+const accordions = document.querySelectorAll('.accordion-btn');
+
+accordions.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null; // bezárás
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px"; // megnyitás
+        }
+    });
+});
