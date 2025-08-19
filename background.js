@@ -8,23 +8,18 @@ function resizeCanvas() {
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
-// Random vonalak rajzolása
+// Véletlenszerű vonalak generálása
 function drawLines() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < 200; i++) {
         ctx.beginPath();
         ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
         ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
-        ctx.strokeStyle = 'rgba(0,0,0,0.1)';
+        ctx.strokeStyle = 'rgba(0,0,0,0.05)'; // halványabb vonalak
         ctx.lineWidth = 1;
         ctx.stroke();
     }
 }
 
-// Folyamatos frissítés (opcionális animáció)
-function animate() {
-    drawLines();
-    requestAnimationFrame(animate);
-}
-
-animate();
+// Lassan frissítjük a háttér animációt
+setInterval(drawLines, 400); // 0.4 másodpercenként újrarajzol
