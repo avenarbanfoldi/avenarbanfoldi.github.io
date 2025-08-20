@@ -1,11 +1,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
+    background-color: black;
+    color: white;
 }
 
-/* Landing */
 #landing {
     position: relative;
     width: 100%;
@@ -13,14 +12,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
     overflow: hidden;
 }
 
-#name {
-    position: relative;
+#landing #name {
     font-size: 4rem;
-    font-weight: bold;
+    pointer-events: auto;
+    text-align: center;
     z-index: 2;
+    position: relative;
 }
 
 #backgroundCanvas {
@@ -30,53 +31,40 @@ body {
     z-index: 1;
 }
 
-/* Biography */
-#biography {
-    padding: 100px 20px;
-    background-color: #000;
-    color: #fff;
-    font-size: 1.4rem;
-    line-height: 2;
-    position: relative;
+#content {
+    background-color: black;
+    padding: 50px;
 }
 
-/* Projects */
-#projects {
-    padding: 50px 20px;
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 .accordion {
-    background-color: #111;
-    color: #fff;
-    cursor: pointer;
-    padding: 15px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    font-size: 1.5rem;
-    transition: 0.4s;
-}
-
-.accordion.active {
     background-color: #222;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    font-size: 1.5rem;
+    width: 100%;
 }
 
 .panel {
-    padding: 0 15px;
-    background-color: #111;
-    overflow: hidden;
     max-height: 0;
+    overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
 
-.panel p {
-    font-size: 1.4rem;
-}
-
-.panel iframe {
-    width: 100%;
-    max-width: 800px;
-    height: 450px;
-    margin: 10px 0;
+iframe {
+    display: block;
+    margin: 20px 0;
+    max-width: 100%;
 }
