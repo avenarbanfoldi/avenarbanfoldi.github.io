@@ -1,4 +1,4 @@
-// Canvas háttér
+// Canvas setup
 const canvas = document.getElementById('background');
 const ctx = canvas.getContext('2d');
 let w, h;
@@ -10,6 +10,7 @@ function resize() {
 window.addEventListener('resize', resize);
 resize();
 
+// Pókháló pontok
 const points = [];
 for (let i = 0; i < 300; i++) {
     points.push({
@@ -22,6 +23,7 @@ for (let i = 0; i < 300; i++) {
 
 function animate() {
     ctx.clearRect(0, 0, w, h);
+
     for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
             const dx = points[i].x - points[j].x;
@@ -36,35 +38,23 @@ function animate() {
             }
         }
     }
+
     points.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
         if (p.x < 0 || p.x > w) p.dx *= -1;
         if (p.y < 0 || p.y > h) p.dy *= -1;
     });
+
     requestAnimationFrame(animate);
 }
 animate();
 
-// Landing eltűntetés scrollnál
-const landing = document.getElementById('landing');
-const content = document.getElementById('content');
-
-window.addEventListener('scroll', () => {
-    if(window.scrollY > window.innerHeight * 0.1) {
-        landing.style.display = 'none';
-        content.style.display = 'block';
-    } else {
-        landing.style.display = 'block';
-        content.style.display = 'none';
-    }
-});
-
-// Tabok kezelése
-const buttons = document.querySelectorAll('.tab-button');
-buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const tabId = btn.dataset.tab;
+// Tab funkció
+const tabButtons = document.querySelectorAll('.tab-button');
+tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
         document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
     });
