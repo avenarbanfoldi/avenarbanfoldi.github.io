@@ -50,16 +50,6 @@ function animate() {
 
 animate();
 
-// ----- Landing scroll -----
-const landing = document.getElementById('landing');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight * 0.7) {
-        landing.style.display = 'none';
-    } else {
-        landing.style.display = 'flex';
-    }
-});
-
 // ----- Accordion -----
 const accordions = document.querySelectorAll('.accordion');
 accordions.forEach(acc => {
