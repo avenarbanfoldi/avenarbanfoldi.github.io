@@ -1,14 +1,14 @@
-// ----- Pókháló -----
+// --- POHÁLÓS BACKGROUND ---
 const canvas = document.getElementById('backgroundCanvas');
 const ctx = canvas.getContext('2d');
 let w, h;
 
-function resize() {
+function resizeCanvas() {
     w = canvas.width = window.innerWidth;
     h = canvas.height = window.innerHeight;
 }
-window.addEventListener('resize', resize);
-resize();
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
 const points = [];
 for (let i = 0; i < 300; i++) {
@@ -22,7 +22,6 @@ for (let i = 0; i < 300; i++) {
 
 function animate() {
     ctx.clearRect(0, 0, w, h);
-
     for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
             const dx = points[i].x - points[j].x;
@@ -37,38 +36,30 @@ function animate() {
             }
         }
     }
-
     points.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
-        if (p.x < 0 || p.x > w) p.dx *= -1;
-        if (p.y < 0 || p.y > h) p.dy *= -1;
+        if(p.x < 0 || p.x > w) p.dx *= -1;
+        if(p.y < 0 || p.y > h) p.dy *= -1;
     });
-
-    // Ha legörgetünk, a canvas eltűnik
-    const landing = document.getElementById('landing');
-    if(window.scrollY > window.innerHeight){
-        canvas.style.display = 'none';
-        landing.style.height = 'auto';
-    } else {
-        canvas.style.display = 'block';
-        landing.style.height = '100vh';
-    }
-
     requestAnimationFrame(animate);
 }
 animate();
 
-// ----- Accordion -----
-const accordions = document.querySelectorAll('.accordion');
-accordions.forEach(acc => {
-    acc.addEventListener('click', () => {
-        acc.classList.toggle('active');
-        const panel = acc.nextElementSibling;
-        if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-        } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-    });
+// --- SCROLL HIDE LANDING ---
+window.addEventListener('scroll', () => {
+    const landing = document.getElementById('landing');
+    if(window.scrollY > window.innerHeight) {
+        landing.style.display = 'none';
+    } else {
+        landing.style.display = 'block';
+    }
+});
+
+// --- PROJECT TAB ---
+const tabButton = document.querySelector('.tab-button');
+const tabContent = document.querySelector('.tab-content');
+
+tabButton.addEventListener('click', () => {
+    tabContent.classList.toggle('tab-active');
 });
