@@ -1,3 +1,6 @@
+/* ==========================
+   Alap stílusok
+   ========================== */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -6,10 +9,13 @@ body {
     overflow-x: hidden;
 }
 
+/* ==========================
+   Landing szakasz
+   ========================== */
 #landing {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh; /* biztosítja a scroll Safari-ban */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,35 +29,45 @@ body {
 }
 
 #name {
-    position: absolute; /* sticky helyett */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 4rem;
     text-align: center;
     z-index: 2;
     color: white;
 }
 
-#content {
-    background-color: black;
-    padding: 50px 20px;
-}
-
+/* ==========================
+   Általános tartalom szakasz
+   ========================== */
 section {
     max-width: 900px;
     margin: 0 auto 60px auto;
+    padding: 0 20px;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2rem; /* Biography és Projects egységes */
     margin-bottom: 20px;
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* egységes szövegméret */
     line-height: 1.6;
 }
 
-.project {
+/* ==========================
+   Projektek / Tab-ok
+   ========================== */
+.project-tab {
     margin-top: 40px;
+}
+
+.project-tab h3 {
+    font-size: 1.8rem; /* WHITE fül kicsit kisebb */
+    margin-bottom: 15px;
 }
 
 .tab-button {
@@ -72,9 +88,26 @@ p {
     display: block;
 }
 
-.video-wrapper iframe {
+/* ==========================
+   Videók stílusa
+   ========================== */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.video-container iframe {
     width: 100%;
     max-width: 560px;
     height: 315px;
-    margin-bottom: 20px;
+}
+
+/* ==========================
+   Extra margin top a scroll után
+   ========================== */
+#biography,
+#projects {
+    padding-top: 50px;
 }
