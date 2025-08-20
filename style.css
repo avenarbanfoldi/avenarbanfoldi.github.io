@@ -1,14 +1,26 @@
+/* --- GLOBAL --- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: black;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 /* --- LANDING --- */
 #landing {
     position: relative;
-    width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     background-color: black;
 }
 
 #backgroundCanvas {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -18,7 +30,7 @@
 }
 
 #name {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -28,47 +40,42 @@
     color: white;
 }
 
-/* --- CONTENT --- */
-#content {
-    background-color: black;
-    color: white;
-    padding: 50px;
+/* --- BIOGRAPHY & PROJECTS --- */
+section {
+    padding: 100px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 3;
+    position: relative;
 }
 
-h2 {
+#biography p, #whiteTab p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+#projects h2, #biography h2 {
     font-size: 2rem;
 }
 
-p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-}
-
-/* --- Projects tab --- */
-.project-tab {
-    margin-top: 20px;
-}
-
-.tab-button {
-    background-color: transparent;
-    color: white;
+/* --- TABS --- */
+.tabButton {
+    background: none;
     border: 1px solid white;
+    color: white;
     padding: 10px 20px;
+    margin-bottom: 10px;
     cursor: pointer;
     font-size: 1.5rem;
 }
 
-.tab-content {
+.tabContent {
     display: none;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
-.tab-content iframe {
-    margin-top: 10px;
-    max-width: 100%;
-}
-
-/* Aktív tab megjelenítés */
-.tab-active {
+.tabContent iframe {
     display: block;
+    max-width: 100%;
+    margin-bottom: 20px;
 }
