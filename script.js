@@ -1,4 +1,4 @@
-// ----- Pókháló animáció -----
+// ----- Pókháló -----
 const canvas = document.getElementById('backgroundCanvas');
 const ctx = canvas.getContext('2d');
 let w, h;
@@ -45,9 +45,18 @@ function animate() {
         if (p.y < 0 || p.y > h) p.dy *= -1;
     });
 
+    // Ha legörgetünk, a canvas eltűnik
+    const landing = document.getElementById('landing');
+    if(window.scrollY > window.innerHeight){
+        canvas.style.display = 'none';
+        landing.style.height = 'auto';
+    } else {
+        canvas.style.display = 'block';
+        landing.style.height = '100vh';
+    }
+
     requestAnimationFrame(animate);
 }
-
 animate();
 
 // ----- Accordion -----
