@@ -1,5 +1,5 @@
-// --- CANVAS POHÁLÓ ---
-const canvas = document.getElementById('backgroundCanvas');
+// Canvas háttér
+const canvas = document.getElementById('background');
 const ctx = canvas.getContext('2d');
 let w, h;
 
@@ -22,7 +22,6 @@ for (let i = 0; i < 300; i++) {
 
 function animate() {
     ctx.clearRect(0, 0, w, h);
-
     for (let i = 0; i < points.length; i++) {
         for (let j = i + 1; j < points.length; j++) {
             const dx = points[i].x - points[j].x;
@@ -37,37 +36,36 @@ function animate() {
             }
         }
     }
-
     points.forEach(p => {
         p.x += p.dx;
         p.y += p.dy;
         if (p.x < 0 || p.x > w) p.dx *= -1;
         if (p.y < 0 || p.y > h) p.dy *= -1;
     });
-
     requestAnimationFrame(animate);
 }
-
 animate();
 
-// --- SCROLL HIDE LANDING ---
+// Landing eltűntetés scrollnál
+const landing = document.getElementById('landing');
+const content = document.getElementById('content');
+
 window.addEventListener('scroll', () => {
-    const landing = document.getElementById('landing');
-    if(window.scrollY > window.innerHeight - 1) {
+    if(window.scrollY > window.innerHeight * 0.1) {
         landing.style.display = 'none';
+        content.style.display = 'block';
     } else {
         landing.style.display = 'block';
+        content.style.display = 'none';
     }
 });
 
-// --- TABS ---
-const tabButtons = document.querySelectorAll('.tabButton');
-const tabContents = document.querySelectorAll('.tabContent');
-
-tabButtons.forEach(btn => {
+// Tabok kezelése
+const buttons = document.querySelectorAll('.tab-button');
+buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-        const target = document.getElementById(btn.dataset.tab);
-        tabContents.forEach(tc => tc.style.display = 'none');
-        target.style.display = 'block';
+        const tabId = btn.dataset.tab;
+        document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
     });
 });
