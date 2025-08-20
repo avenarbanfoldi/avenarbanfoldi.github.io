@@ -47,7 +47,7 @@ canvas#backgroundCanvas {
 }
 
 #biography p {
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* same as project description */
     line-height: 2;
 }
 
@@ -58,12 +58,12 @@ canvas#backgroundCanvas {
 }
 
 #projects h2 {
-    font-size: 1.5rem;
-    line-height: 2;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
 .project-description {
-    font-size: 1.3rem;
+    font-size: 1.4rem; /* same as biography */
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -80,6 +80,7 @@ canvas#backgroundCanvas {
     outline: none;
     transition: 0.3s;
     margin-bottom: 10px;
+    font-size: 1.5rem; /* slightly smaller than project h2 */
 }
 
 .accordion.active, .accordion:hover {
