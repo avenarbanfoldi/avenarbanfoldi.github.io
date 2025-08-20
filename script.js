@@ -1,58 +1,59 @@
 // ----- Pókháló animáció -----
 const canvas = document.getElementById('backgroundCanvas');
 const ctx = canvas.getContext('2d');
-let width = canvas.width = window.innerWidth;
-let height = canvas.height = window.innerHeight;
+let w, h;
 
-const lines = [];
-const NUM_LINES = 500; // sűrű pókháló
-const MAX_LENGTH = 80;
+function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
 
-function random(min, max) { return Math.random() * (max - min) + min; }
-
-class Line {
-    constructor() {
-        this.x = random(0, width);
-        this.y = random(0, height);
-        this.angle = random(0, 2*Math.PI);
-        this.speed = random(0.05, 0.15);
-        this.length = random(20, MAX_LENGTH);
-        this.color = 'rgba(255,255,255,' + random(0.2, 0.5) + ')';
-    }
-    move() {
-        this.x += Math.cos(this.angle) * this.speed;
-        this.y += Math.sin(this.angle) * this.speed;
-        if (this.x < 0 || this.x > width) this.angle = Math.PI - this.angle;
-        if (this.y < 0 || this.y > height) this.angle = -this.angle;
-    }
-    draw() {
-        ctx.strokeStyle = this.color;
-        ctx.beginPath();
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x + Math.cos(this.angle) * this.length, this.y + Math.sin(this.angle) * this.length);
-        ctx.stroke();
-    }
+const points = [];
+for (let i = 0; i < 300; i++) {
+    points.push({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        dx: (Math.random() - 0.5) * 0.1,
+        dy: (Math.random() - 0.5) * 0.1
+    });
 }
 
-for (let i = 0; i < NUM_LINES; i++) lines.push(new Line());
-
 function animate() {
-    ctx.clearRect(0,0,width,height);
-    lines.forEach(line => { line.move(); line.draw(); });
+    ctx.clearRect(0, 0, w, h);
+
+    for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+            const dx = points[i].x - points[j].x;
+            const dy = points[i].y - points[j].y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if (dist < 120) {
+                ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+                ctx.beginPath();
+                ctx.moveTo(points[i].x, points[i].y);
+                ctx.lineTo(points[j].x, points[j].y);
+                ctx.stroke();
+            }
+        }
+    }
+
+    points.forEach(p => {
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > w) p.dx *= -1;
+        if (p.y < 0 || p.y > h) p.dy *= -1;
+    });
+
     requestAnimationFrame(animate);
 }
 
 animate();
 
-window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-});
-
 // ----- Landing scroll -----
 const landing = document.getElementById('landing');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > window.innerHeight * 0.7) { 
+    if (window.scrollY > window.innerHeight * 0.7) {
         landing.style.display = 'none';
     } else {
         landing.style.display = 'flex';
