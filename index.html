@@ -2,38 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avenar Banföldi</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- LANDING -->
     <div id="landing">
         <canvas id="backgroundCanvas"></canvas>
         <div id="name">Avenar Banföldi</div>
     </div>
 
+    <!-- CONTENT -->
     <div id="content">
+        <!-- Biography -->
         <section id="biography">
             <h2>Biography</h2>
             <p>
-                In 2023, I graduated with a bachelor’s degree from the Liszt Ferenc Academy of Music in Budapest, specializing in Electronic Music Media Arts under the supervision of Dr. Andrea Szigetvári.
-                I am currently pursuing a master’s degree in Electronic Music at the Hochschule für Musik Hanns Eisler Berlin, in the class of Prof. Wolfgang Heiniger.
-                My main areas of focus are interdisciplinary projects, spatial audio, and live performance with self-developed instruments.
-                My compositions have been performed at various venues and festivals in Krakow, Poland; Karlsruhe and Berlin, Germany; Vienna and Graz, Austria; as well as in multiple locations across Hungary.
+            In 2023, I graduated with a bachelor’s degree from the Liszt Ferenc Academy of Music in Budapest, 
+            specializing in Electronic Music Media Arts under the supervision of Dr. Andrea Szigetvári.
+            I am currently pursuing a master’s degree in Electronic Music at the Hochschule für Musik Hanns Eisler Berlin, 
+            in the class of Prof. Wolfgang Heiniger.
+            My main areas of focus are interdisciplinary projects, spatial audio, and live performance with self-developed instruments.
+            My compositions have been performed at various venues and festivals in Krakow, Poland; Karlsruhe and Berlin, Germany; 
+            Vienna and Graz, Austria; as well as in multiple locations across Hungary.
             </p>
         </section>
 
+        <!-- Projects -->
         <section id="projects">
             <h2>Projects</h2>
-            <button class="accordion">WHITE</button>
-            <div class="panel">
-                <p>
-                    My spatial audio composition "White" is woven from only human voice. On stage, singer Panna Dobos performs alongside her own recorded self — one body, two layers. In this dialogue, past and present, moment and timelessness entwine. The piece evokes the pain of leaving home, the impossibility of return, and the quiet tremors of grief.
-                </p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEOLINK1" title="White 1" frameborder="0" allowfullscreen></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEOLINK2" title="White 2" frameborder="0" allowfullscreen></iframe>
+            <div class="project-tab" id="white-tab">
+                <button class="tab-button">WHITE</button>
+                <div class="tab-content">
+                    <p>
+                    My spatial audio composition "White" is woven from only human voice. On stage, singer Panna Dobos performs alongside her own recorded self — one body, two layers. 
+                    In this dialogue, past and present, moment and timelessness entwine. The piece evokes the pain of leaving home, the impossibility of return, and the quiet tremors of grief.
+                    </p>
+                    <div class="videos">
+                        <!-- YouTube videók -->
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6lH4LRRHbe8" title="Video 1" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/KuYbUTqTsX8" title="Video 2" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
